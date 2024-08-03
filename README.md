@@ -1,5 +1,8 @@
 # misskey-admin-notify-webhook-for-discord
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![workflow](https://github.com/t1nyb0x/misskey-admin-notify-webhook-for-discord/actions/workflows/deploy-cfworkers.yml/badge.svg)
+
 English | [Japanese](./README-ja.md)
 
 ## What is this
