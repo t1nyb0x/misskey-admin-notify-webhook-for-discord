@@ -11,6 +11,8 @@ This repository notifies to discord webhook what notice mention to user, abuse r
 
 This program working on cloudflare workers.
 
+![出力例](./md/image.png)
+
 ## Usage
 
 ### Workers side setting

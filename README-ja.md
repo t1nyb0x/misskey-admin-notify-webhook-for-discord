@@ -11,6 +11,8 @@ Misskey から、ユーザーへのメンション・リプライ通知、通報
 
 Cloudflare Workers 上で動きます。
 
+![出力例](./md/image.png)
+
 ## どうやって使うの
 
 ### Workers 側の設定
