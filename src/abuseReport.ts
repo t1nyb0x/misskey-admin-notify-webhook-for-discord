@@ -55,7 +55,7 @@ async function getUsername(server: string, userId: string): Promise<string> {
 		},
 	};
 
-	const response = await fetch(server + 'api/users/show', init);
+	const response = await fetch(server + '/api/users/show', init);
 	const userData = await response.text();
 	const userName = JSON.parse(userData).username;
 

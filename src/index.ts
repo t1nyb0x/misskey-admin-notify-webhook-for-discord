@@ -20,10 +20,11 @@ export default {
 			console.log('wrong secret');
 			return new Response('wrong secret');
 		}
+
 		if (env.DISCORD === null) return new Response('not found discord webhook url');
 
 		const reqBody = await request.text();
-		console.log(reqBody);
+		// console.log(reqBody);
 		if (!reqBody) {
 			console.log('no body');
 			return new Response('no body');
