@@ -15,7 +15,7 @@ export default async function userCreated(body: any, webhookUrl: string) {
 						},
 						{
 							name: 'ユーザー名',
-							value: `${name}`,
+							value: `[${name}](${server}/users/${body.body.id})`,
 						},
 					],
 				},

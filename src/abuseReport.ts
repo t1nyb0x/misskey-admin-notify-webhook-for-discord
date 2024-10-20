@@ -15,7 +15,7 @@ export default async function abuseReport(body: any, webhookUrl: string) {
 				{
 					title: '通報がありました',
 					color: 15409955,
-					description: `通報がありました。\n### 通報内容\n ${body.body.comment}\n### 通報があったサーバー\n${server}`,
+					description: `通報がありました。\n### 通報内容\n ${text}\n### 通報があったサーバー\n${server}`,
 					fields: [
 						{
 							name: '通報されたユーザー',

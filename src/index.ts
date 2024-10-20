@@ -12,6 +12,8 @@
  */
 import abuseReport from './abuseReport';
 import abuseReportResolved from './abuseReportResolved';
+import inactiveModeratorsInvitationOnlyChanged from './inactiveModeratorsInvitationOnlyChanged';
+import inactiveModeratorsWarning from './inactiveModeratorsWarning';
 import mention from './mention';
 import userCreated from './userCreated';
 
@@ -25,7 +27,7 @@ export default {
 		if (env.DISCORD === null) return new Response('not found discord webhook url');
 
 		const reqBody = await request.text();
-		console.log(reqBody);
+		// console.log(reqBody);
 		if (!reqBody) {
 			console.log('no body');
 			return new Response('no body');
@@ -47,6 +49,16 @@ export default {
 
 		if (body.type === 'abuseReportResolved') {
 			const isOk = await abuseReportResolved(body, env.DISCORD);
+			return new Response(isOk ? 'ok' : 'error');
+		}
+
+		if (body.type === 'inactiveModeratorsWarning') {
+			const isOk = await inactiveModeratorsWarning(body, env.DISCORD);
+			return new Response(isOk ? 'ok' : 'error');
+		}
+
+		if (body.type === 'inactiveModeratorsInvitationOnlyChanged') {
+			const isOk = await inactiveModeratorsInvitationOnlyChanged(body, env.DISCORD);
 			return new Response(isOk ? 'ok' : 'error');
 		}
 
