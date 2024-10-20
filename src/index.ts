@@ -11,6 +11,7 @@
  * Learn more at https://developers.cloudflare.com/workers/
  */
 import abuseReport from './abuseReport';
+import abuseReportResolved from './abuseReportResolved';
 import mention from './mention';
 import userCreated from './userCreated';
 
@@ -24,7 +25,7 @@ export default {
 		if (env.DISCORD === null) return new Response('not found discord webhook url');
 
 		const reqBody = await request.text();
-		// console.log(reqBody);
+		console.log(reqBody);
 		if (!reqBody) {
 			console.log('no body');
 			return new Response('no body');
@@ -32,7 +33,7 @@ export default {
 
 		const body = JSON.parse(reqBody);
 
-		//console.log(body)
+		// console.log(body);
 
 		if (body.type === 'userCreated') {
 			const isOk = await userCreated(body, env.DISCORD);
@@ -41,6 +42,11 @@ export default {
 
 		if (body.type === 'abuseReport') {
 			const isOk = await abuseReport(body, env.DISCORD);
+			return new Response(isOk ? 'ok' : 'error');
+		}
+
+		if (body.type === 'abuseReportResolved') {
+			const isOk = await abuseReportResolved(body, env.DISCORD);
 			return new Response(isOk ? 'ok' : 'error');
 		}
 
