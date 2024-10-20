@@ -11,6 +11,9 @@
  * Learn more at https://developers.cloudflare.com/workers/
  */
 import abuseReport from './abuseReport';
+import abuseReportResolved from './abuseReportResolved';
+import inactiveModeratorsInvitationOnlyChanged from './inactiveModeratorsInvitationOnlyChanged';
+import inactiveModeratorsWarning from './inactiveModeratorsWarning';
 import mention from './mention';
 import userCreated from './userCreated';
 
@@ -32,7 +35,7 @@ export default {
 
 		const body = JSON.parse(reqBody);
 
-		//console.log(body)
+		// console.log(body);
 
 		if (body.type === 'userCreated') {
 			const isOk = await userCreated(body, env.DISCORD);
@@ -41,6 +44,21 @@ export default {
 
 		if (body.type === 'abuseReport') {
 			const isOk = await abuseReport(body, env.DISCORD);
+			return new Response(isOk ? 'ok' : 'error');
+		}
+
+		if (body.type === 'abuseReportResolved') {
+			const isOk = await abuseReportResolved(body, env.DISCORD);
+			return new Response(isOk ? 'ok' : 'error');
+		}
+
+		if (body.type === 'inactiveModeratorsWarning') {
+			const isOk = await inactiveModeratorsWarning(body, env.DISCORD);
+			return new Response(isOk ? 'ok' : 'error');
+		}
+
+		if (body.type === 'inactiveModeratorsInvitationOnlyChanged') {
+			const isOk = await inactiveModeratorsInvitationOnlyChanged(body, env.DISCORD);
 			return new Response(isOk ? 'ok' : 'error');
 		}
 
