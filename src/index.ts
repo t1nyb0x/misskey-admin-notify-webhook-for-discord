@@ -19,9 +19,6 @@ import userCreated from './userCreated';
 
 export default {
 	async fetch(request: Request, env: { SECRET: string | null; DISCORD: string | null }) {
-		env.SECRET = '/wBi,2dWy$Tn*SmBPuhb';
-		env.DISCORD =
-			'https://discord.com/api/webhooks/1268909007897362516/8C1XnDlXi5bRv7upuY_A_hOovnVf3NoAEZvzSTJCGYspvxIzg7quG--qKsbFk4ix6QX2';
 		if (request.headers.get('X-Misskey-Hook-Secret') !== env.SECRET) {
 			console.log('wrong secret');
 			return new Response('wrong secret');
