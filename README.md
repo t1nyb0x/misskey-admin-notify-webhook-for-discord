@@ -43,27 +43,20 @@ https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks
 #### Notification settings for abuse report and new user registration
 
 1. Open Control Panel
-2. Select "Webhook"
-3. Click "Create Webhook"
-4. Enter each item<br>
+2. Select "Webhook" → "Create Webhook"
+3. Enter each item<br>
    Name: Any value can be applied<br>
-   URL: Discord Webhook URL<br>
+   URL: Cloudflare Workers Webhook URL<br>
+   The URL should be like `https://<appname>.<accountname>-cflabo.workers.dev/`.
    Secret: Enter the contents of the SECRET set in Workers
-5. Select "Report"
-6. Click "Notification setting"
-7. Click "Add a recipient for abuse reports"
-8. Enter each item<br>
-   Title: Any value can be applied<br>
-   Notification type: Webhook
-   Webhook to use: Name set in 4
+4. Select "Report" → "Notification setting" → "Add a recipient for abuse reports"
+5. Select created webhook from "Webhook to use"
 
 #### Setting up Mention Reply notifications to users
 
 1. Login as the user you wish to receive notifications from.
-2. Open settings
-3. Select "Webhook"
-4. Click "Create Webhook"
-5. Enter each item<br>
+2. Select "Settings" → "Service integration" "Webhook" → "Create Webhook"
+3. Enter each item<br>
    Name: Any value can be applied<br>
    URL: Discord Webhook URL<br>
    Secret: Enter the contents of the SECRET set in Workers<br>
