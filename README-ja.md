@@ -21,20 +21,10 @@ Workers へこのプログラムをデプロイしてください。
 
 以下の変数名を Workers に登録する必要があります。
 
-- SECRET
-- DISCORD
+- **SECRET**：任意の文字列で問題ありません。Misskey の Webhook 設定に使用します。
+- **DISCORD**：Discord の WebhookURL を設定してください。
 
-#### SECRET
-
-任意の文字列で問題ありません。
-
-Misskey の Webhook 設定に使用します。
-
-#### DISCORD
-
-Discord の WebhookURL を設定してください。
-
-Webhook についてはこちら
+Discord Webhook についてはこちら：
 
 https://support.discord.com/hc/ja/articles/228383668-%E3%82%BF%E3%82%A4%E3%83%88%E3%83%AB-Webhooks%E3%81%B8%E3%81%AE%E5%BA%8F%E7%AB%A0
 
@@ -43,27 +33,20 @@ https://support.discord.com/hc/ja/articles/228383668-%E3%82%BF%E3%82%A4%E3%83%88
 #### 通報・新規ユーザー登録の通知設定
 
 1. コントロールパネルを開く
-2. 「Webhook」を選択
-3. 「Webhook を作成」を押下
-4. 各項目を入力<br>
+2. 「Webhook」→「Webhook を作成」を押下
+3. 各項目を入力<br>
    名前：任意の内容<br>
-   URL：Discord の WebhookURL<br>
+   URL：Cloudflare Workers の WebhookURL<br>
+   デフォルトでは、 `https://<アプリ名>.<アカウント名>-cflabo.workers.dev/` のような見た目をしているはずです。<br>
    シークレット：Workers で設定した SECRET の内容を入力
-5. コントロールパネルから「通報」を選択
-6. 「通知設定」を押下
-7. 「通報の通知先を追加」を押下
-8. 以下項目を入力<br>
-   タイトル：任意の内容<br>
-   通知先の種類：Webhook<br>
-   使用する Webhook：4 で設定した名前
+4. 「コントロールパネル」→「通報」→「通知設定」→「通報の通知先を追加」を押下
+5. 「使用するWebhook」で、4で作成した名前を選択
 
 #### ユーザーへのメンション・リプライ通知設定
 
 1. 通知を受け取りたいユーザーでログインする
-2. 設定を開く
-3. 「Webhook」を選択
-4. 「Webhook を作成」を押下
-5. 各項目を入力<br>
+2. 「設定」→「サービス連携」→「Webhook」→「Webhook を作成」を押下
+3. 各項目を入力<br>
    名前：任意の内容<br>
    URL：Discord の WebhookURL<br>
    シークレット：Workers で設定した SECRET の内容を入力<br>
